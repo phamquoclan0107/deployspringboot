@@ -7,6 +7,7 @@ RUN mvn clean package -DskipTests
 # Run stage
 FROM openjdk:17-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/DrComputer-0.0.1-SNAPSHOT.war drcomputer.war
+COPY --from=build /app/target/shopapp-0.0.1-SNAPSHOT.jar drcomputer.jar
 EXPOSE 8088
-ENTRYPOINT ["java", "-jar", "drcomputer.war"]
+ENTRYPOINT ["java", "-jar", "drcomputer.jar"]
+
